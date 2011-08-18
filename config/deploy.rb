@@ -1,3 +1,5 @@
+require 'fileutils'
+
 # Domains
 set :dev_domain,            'www.dev.doxsite.com'
 
@@ -7,6 +9,7 @@ set :repository,            "git@github.com:paulbrodner/API-Test.git"
 set :user,                  "ubuntu"
 set :use_sudo,              false
 set :deploy_to,             "/var/www/#{application}"
+set :api_config,            "/var/api_consumer_config/current"
 set :deploy_via,            :remote_cache
 set :ssh_options,           { :forward_agent => true, :port => 22, :keys => [ "#{ENV['HOME']}/.ssh/osf.pem" ] }
 
@@ -20,9 +23,9 @@ role :db,  dev_domain, :primary => true # This is where Rails migrations will ru
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
-
+before "deploy",         "deploy:check_id_rsa"
 before "deploy",         "deploy:check_pem"
-
+#after  "deploy:update_code",  "deploy:copy_files"
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
@@ -39,4 +42,20 @@ namespace :deploy do
       exit
     end
   end
+
+  task :check_id_rsa do
+    if( File.exists?( '/home/vagrant/' ) )
+      exists = File.exists?( '/home/vagrant/.ssh/id_rsa' )
+      if( !exists )
+        puts "it seems this is a vagrant VM and there's no id_rsa file (looking for /home/vagrant/.ssh/id_rsa)"
+        exit
+      end
+    end
+  end
+
+  task :copy_files do
+    FileUtils.cp_r "#{deploy_to}/shared/cached-copy", "#{deploy_to}/current", :verbose => true
+    FileUtils.cp_r "#{api_config}", "#{deploy_to}/current", :verbose => true
+  end
+  
 end
