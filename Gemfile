@@ -10,3 +10,4 @@ gem 'oauth2', :git =>'git://github.com/intridea/oauth2.git'
 gem 'oauth-plugin' , :git =>'git://github.com/pelle/oauth-plugin.git'
 gem 'json'
 
+gem 'capistrano'
