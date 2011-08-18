@@ -1,0 +1,21 @@
+<h2>All personal tags assets </h2>
+<%= render "general/info_parsing" %>
+
+<p>
+  Tags displayed in list:<br/>
+  <%= form_tag('/tags/destroy')  do %>
+  <div class="field">
+    <%= collection_select('tag', 'tag_id', @tags_obj, :last, :first) %>
+  </div>
+  <div class="actions">
+    <%= submit_tag("Delete tag")%>
+  </div>
+<% end %>
+
+</p>
+
+<% if access_token %>
+  <%= @tags.body %>
+<% else %>
+  <%= render "general/info_oauth" %>
+<% end %>

@@ -1,0 +1,7 @@
+<h2>Adding a new tag on Doxsite.com</h2>
+<p>Tag <b><%= @tag_name %></b> was added on Doxsite via API</p>
+<p>You should see a positive message displayed, also the new tag on <a href="http://dev.doxsite.com/tags">doxsite</a></p>
+<hr/>
+<% unless access_token %>
+  <%= render "general/info_oauth" %>
+<% end %>

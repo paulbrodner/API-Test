@@ -1,0 +1,9 @@
+<%= form_tag('/file_assets',:multipart => true,:method => :create)  do %>
+  <div class="field">
+    <%= label_tag "file".to_sym, "Select file:" %>
+    <%= file_field_tag "file".to_sym %>
+  </div>
+  <div class="actions">
+    <%= submit_tag("Add file asset")%>
+  </div>
+<% end %>

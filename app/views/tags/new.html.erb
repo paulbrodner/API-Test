@@ -1,0 +1,13 @@
+<h1>Test adding a new tag (using API)</h1>
+<p>Add a new tag and press submit! If everything is OK, you should see the new tag created on dev.doxsite.com application</p>
+<%= form_tag  do %>
+  <div class="field">
+    <%= label_tag("New Tag") %>
+    <%= text_field_tag(:tag_name) %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag("Add New Tag") %>
+  </div>
+<% end %>
+

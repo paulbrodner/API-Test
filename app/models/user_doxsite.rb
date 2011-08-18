@@ -1,0 +1,2 @@
+class UserDoxsite
+end

@@ -1,0 +1,7 @@
+<h2>All personal file assets </h2>
+<%= render "general/info_no_parsing" %>
+<% if access_token %>
+  <%= access_token.get("/api/v1/file_assets").body %>
+<% else %>
+  <%= render "general/info_oauth" %>
+<% end %>

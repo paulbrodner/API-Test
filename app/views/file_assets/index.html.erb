@@ -1,0 +1,23 @@
+<h1>Listing my File Assets</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <b>ID's:</b>
+  <%= @file_assets.keys %>
+  <% @file_assets.each do |key,value| %>
+    <tr>
+      <td><%= key %></td>
+      <td><%= value["name"]%></td>
+      <td><%= link_to 'Show', file_asset_path(key.sub("-",":")) %></td>
+      <td><%= link_to 'Delete', file_asset_path(key.sub("-",":")), :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New File asset', new_file_asset_path %>

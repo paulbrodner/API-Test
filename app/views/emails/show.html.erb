@@ -1,0 +1,45 @@
+<h2>Email Details</h2>
+<% @email.each do |key,value| %>
+  <p><b>ID:</b></p>
+  <%= key %>
+  <p><b>Label:</b></p>
+  <%= value["inner_object"]["attributes"]["label"] %>
+  <p><b>Created at:</b></p>
+  <%= value["inner_object"]["attributes"]["create_date"] %>
+<% end %>
+
+<h5>Tags (from API)</h5>
+<ol>
+  <% @email_tags.each do |key,value| %>
+    <li><%= key %> <%= link_to "untag", untag_email_path(@email_id,:tag_id=>key),:method=>:post %> </li>
+    <b>Name:</b>
+    <%= value["datastreams"]["meta_properties"]["fields"]["name"]["values"].at(0) %>
+  <% end %>
+</ol>
+
+<%= render "tags/tag_object", :controller=>"emails" %>
+
+<h5>Attachments:</h5>
+<ol>
+  <% @attachments.each do |key,value| %>
+    <li><b>ID:</b></li>
+
+    <%= key %><br/>
+    <b>Name:</b>
+    <%= value["label"] %> <br/>
+    <b>Size:</b>
+    <%= value["size"] %><br/>
+    <b>Type:</b>
+    <%= value["type"] %><br/>
+  <% end %>
+</ol>
+<b>Text Body:</b>
+<%= @email_text %>
+<br/>
+<b>HTML Body:</b> 
+<%= @email_html %>
+
+
+<h5>All details of this email</h5>
+<%= @email %>
+<%= link_to 'Back', emails_path %>

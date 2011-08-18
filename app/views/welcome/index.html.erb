@@ -1,0 +1,57 @@
+<h1>Welcome</h1>
+<h4>This is one basic application to test the Doxsite-API, using the OAuth service.</h4>
+<p>
+  <b>Note:</b> You must create a new account in order to continue.
+</p>
+<p>
+  On this page <%= link_to "OAuth Consumers", oauth_consumers_path %> you will see the available services supported by this consumer.
+</p>
+<p>
+  We created some test pages for some methods available from Doxsite-API.
+</p>
+<hr/>
+
+<p>
+  If you are already connected to Doxsite (through API), you can:
+</p>
+<table class="api_test">
+  <tr>
+    <th>Object</th>
+    <th>Methods</th>
+    <th>Note</th>
+  </tr>
+
+  <tr>
+    <td>Tags</td>
+    <td align="right">
+      See <%= link_to "All Tags", tags_all_path %>
+      <br/>
+      Create <%= link_to "New Tags", tags_new_path %>
+      <br/>
+    </td>
+    <td>you can also delete delete tags</td>
+  </tr>
+  <tr>
+    <td>File Assets</td>
+    <td align="right">
+      See <%= link_to "My File Assets", file_assets_path %>
+      <br/>
+      Create <%= link_to "New File Assets", new_file_asset_path %>
+      <br/>
+    </td>
+    <td>add tags, untag, delete file asset</td>
+  </tr>
+  <tr>
+    <td>Users</td>
+    <td align="right">
+      Create <%= link_to "New User", new_user_doxsite_path %>
+    </td>
+  </tr>
+  <tr>
+    <td>Emails</td>
+    <td align="right">
+      See <%= link_to "my emails", emails_path %>
+    </td>
+    <td>add tags, untag, delete emails, show attachments, html and text body, other details</td>
+  </tr>
+</table>

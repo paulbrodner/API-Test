@@ -1,0 +1,48 @@
+.listing {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+.listing th,
+.listing td {
+    border: 1px solid black;
+    padding: 5px; }
+#simple_navigation {
+    padding: 5px 10px;
+    margin: 15px 0;
+    background-color: #e4e4e4;
+    border: dashed 1px #a4a4a4;
+    display: table;
+}
+#container .menu {
+    padding: 0;
+    margin: 20px 0;
+    text-align: right;
+}
+#container .menu li{
+    list-style: none;
+    display: inline;
+    padding: 10px;
+    margin: 10px;
+    border: 4px solid #a4a4a4;
+    border-right: none;
+    border-left: none;
+}
+h1.site_title {
+    background: none
+}
+h1.site_title a {
+    display: inline;
+    height: auto;
+    width: auto;
+    text-indent: 0;
+    overflow: visible;
+    text-decoration: none;
+    border: 0;
+}
+
+table.api_test {
+    width: 70%;
+    text-align: center;
+    padding-bottom: 25px;
+}

@@ -1,0 +1,29 @@
+<%= form_tag('/user_doxsites') do %>
+  <div class="field">
+    <table>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <td><%= label_tag "user inbox:" %></td>
+        <td><%= text_field_tag(:inbox) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag "email" %></td>
+        <td> <%= text_field_tag(:email) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag "password" %></td>
+        <td><%= password_field_tag(:password) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag "password confirmation" %></td>
+        <td><%= password_field_tag(:password_conf) %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="actions">
+    <%= submit_tag("Create new user")%>
+  </div>
+<% end %>

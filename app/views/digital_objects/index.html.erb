@@ -1,0 +1,21 @@
+<h1>Listing digital_objects</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @digital_objects.each do |digital_object| %>
+  <tr>
+    <td><%= link_to 'Show', digital_object %></td>
+    <td><%= link_to 'Edit', edit_digital_object_path(digital_object) %></td>
+    <td><%= link_to 'Destroy', digital_object, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Digital object', new_digital_object_path %>

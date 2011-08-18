@@ -1,0 +1,11 @@
+<h5>Tag this file asset</h5>
+<%= form_tag(:action=>"add_tag", :controller=>controller) do %>
+  <div class="field">
+    <%= label_tag("All Tags:") %>
+    <%= collection_select('tag', 'tag_id', @tags_obj, :last, :first) %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag "Tag File Asset"%>
+  </div>
+<% end %>
