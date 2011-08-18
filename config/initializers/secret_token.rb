@@ -1,0 +1,1 @@
+DoxsiteApiTest::Application.config.secret_token = 'da6c4706cf215dcf74af157e6123sadbef07197e8dd407d1c02c7571ffcca4aba7d8b7e915a91a2288313dcb4a39966b6012sadasd2123as1438bf99a31a3bcb0d4358f8613ee6a45f'
