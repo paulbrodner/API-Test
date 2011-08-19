@@ -23,18 +23,16 @@ set :use_sudo,              false
 set :deploy_to,             "/var/www/#{application}"
 set :deploy_via,            :remote_cache
 set :keep_releases,         2
-
 set :ssh_options,           { :forward_agent => true, :port => 22, :keys => [ "#{ENV['HOME']}/.ssh/osf.pem" ] }
-
+set :api_config_dir,        "/var/api_consumer_config"
 
 
 role :web, dev_domain                          # Your HTTP server, Apache/etc
 role :app, dev_domain                          # This may be the same as your `Web` server
 role :db,  dev_domain, :primary => true        # This is where Rails migrations will run
 
-#after "deploy", "deploy:bundle_gems"
-#after "deploy:bundle_gems", "deploy:restart"
-
+after "deploy", "copy_oauth_init"
+after "copy_oauth_init", "deploy:restart"
 
 # for Passenger mod_rails 
 namespace :deploy do
@@ -43,6 +41,11 @@ namespace :deploy do
   #  task :bundle_gems do
   #    run "cd #{deploy_to}/current && bundle install vendor/gems"
   #  end
+
+  task :copy_oauth_init do
+    puts "copying the oauth_consumer for development (you must change this file manually if is modified locally)!!!"
+    run "cp #{api_config_dir}/oauth_consumer.rb #{deploy_to}/current/config/initializers"
+  end
   
   task :start do ; end
   task :stop do ; end
