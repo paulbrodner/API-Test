@@ -31,8 +31,8 @@ role :web, dev_domain                          # Your HTTP server, Apache/etc
 role :app, dev_domain                          # This may be the same as your `Web` server
 role :db,  dev_domain, :primary => true        # This is where Rails migrations will run
 
-after "deploy", "copy_oauth_init"
-after "copy_oauth_init", "deploy:restart"
+after "deploy", "deploy:copy_oauth_init"
+after "deploy:copy_oauth_init", "deploy:restart"
 
 # for Passenger mod_rails 
 namespace :deploy do
