@@ -44,7 +44,7 @@ namespace :deploy do
 
   task :copy_oauth_init do
     puts "copying the oauth_consumer for development (you must change this file manually if is modified locally)!!!"
-    run "cp #{api_config_dir}/oauth_consumer.rb #{deploy_to}/current/config/initializers"
+    run "cp #{api_config_dir}/oauth_consumers.rb #{deploy_to}/current/config/initializers"
   end
   
   task :start do ; end
