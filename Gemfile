@@ -11,3 +11,5 @@ gem 'oauth-plugin' , :git =>'git://github.com/pelle/oauth-plugin.git'
 gem 'json'
 
 gem 'capistrano'
+
+gem 'rest-client', :git =>'git://github.com/archiloque/rest-client.git'

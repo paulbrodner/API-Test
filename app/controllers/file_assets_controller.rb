@@ -1,4 +1,6 @@
+require 'rubygems'
 require 'json'
+require 'rest_client'
 
 class FileAssetsController < ApplicationController
   include ApplicationHelper
@@ -42,8 +44,16 @@ class FileAssetsController < ApplicationController
   # POST /file_assets
   # POST /file_assets.xml
   def create
-    @file_asset = access_token.post('/api/v1/file_assets/create', {:file_asset=>setup_file})
-    display_api_response @file_asset
+    # this post requires authentication so i send the current access_token
+    #RestClient.add_before_execution_proc do |req, params|
+    #  access_token.sign!(req)
+    #end
+
+    RestClient.post "http://localhost:3000/api/v1/file_assets/create", :file_asset =>params["file"]
+    puts "*" * 50
+    #with access token doesn't work
+    #@file_asset = access_token.post('/api/v1/file_assets/create', {:file_asset=>params})
+    flash[:notice] = "Operation terminated. Check if the file is uploaded on Doxsite (testing)"
     respond_with("",:location => :back)
   end
 
@@ -92,7 +102,5 @@ class FileAssetsController < ApplicationController
   def setup_tag_id
     params[:tag][:tag_id].sub("-",":")
   end
-
-
 
 end

@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/archiloque/rest-client.git
+  revision: a2476327af1130c05c9b247846e86dd9e478b45c
+  specs:
+    rest-client (1.6.3)
+      mime-types (>= 1.16)
+
+GIT
   remote: git://github.com/intridea/oauth2.git
   revision: 9c3ed017d76e69347bbd0e573ee1e73ca759e793
   specs:
@@ -131,3 +138,4 @@ DEPENDENCIES
   oauth-plugin!
   oauth2!
   rails (= 3.0.7)
+  rest-client!
