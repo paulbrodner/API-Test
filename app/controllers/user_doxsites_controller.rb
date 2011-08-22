@@ -2,6 +2,9 @@ require 'json'
 
 class UserDoxsitesController < ApplicationController
   include ApplicationHelper
+
+  before_filter :authenticate_user!
+
   respond_to  :html
 
   # GET /user_doxsites

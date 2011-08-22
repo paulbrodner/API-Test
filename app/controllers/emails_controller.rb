@@ -2,7 +2,9 @@ require 'json'
 class EmailsController < ApplicationController
   include ApplicationHelper
   respond_to  :html
-  
+
+  before_filter :authenticate_user!
+   
   # GET /emails
   # GET /emails.xml
   def index

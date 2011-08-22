@@ -3,6 +3,9 @@ require 'json'
 class TagsController < ApplicationController
   include ApplicationHelper
   respond_to  :html
+
+  before_filter :authenticate_user!
+   
   def all
     @tags = get_all_tags
     @tags_obj = JSON[@tags.body]

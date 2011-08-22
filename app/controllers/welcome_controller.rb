@@ -3,6 +3,9 @@ require 'oauth'
 
 class WelcomeController < ApplicationController
   include ApplicationHelper
+
+ 
+   
   def index
     #    puts " start " * 10
     #    @file =File.open('/test/text_sample.txt')

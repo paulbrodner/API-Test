@@ -1,4 +1,8 @@
 class DigitalObjectsController < ApplicationController
+
+  before_filter :authenticate_user!
+
+  
   # GET /digital_objects
   # GET /digital_objects.xml
   def index

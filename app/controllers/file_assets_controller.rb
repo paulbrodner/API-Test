@@ -6,6 +6,7 @@ class FileAssetsController < ApplicationController
   include ApplicationHelper
   respond_to  :html
 
+  before_filter :authenticate_user!
   
   # GET /file_assets
   # GET /file_assets.xml
