@@ -3,7 +3,7 @@ development:
   www_domain: www.localhost.doxsite.com
   email_domain: localhost.mydoxsite.com
     
-dev:
+production:
   domain: dev.doxsite.com
   www_domain: www.dev.doxsite.com
   email_domain: dev.mydoxsite.com
