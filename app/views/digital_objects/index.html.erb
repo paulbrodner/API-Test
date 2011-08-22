@@ -1,21 +1,23 @@
-<h1>Listing digital_objects</h1>
+<h1>Listing my digital_objects</h1>
+<p>Testing the GET method of the API.</p>
+<p>In this table you will see the id of all personal digital objects from dev.doxsite.com. You can also test the GET/DELETE method on one individual file asset clicking SHOW or the DELETE links.</p>
+<p>You can also add a <%= link_to 'new digital object', new_file_asset_path %> (file asset)</p>
+<p>ID's found: <b><%= @digital_objects.keys.count %></b> </p>
 
-<table>
+<table class="listing">
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>ID</th>
+    <th>Other details of the object</th>
   </tr>
-
-<% @digital_objects.each do |digital_object| %>
-  <tr>
-    <td><%= link_to 'Show', digital_object %></td>
-    <td><%= link_to 'Edit', edit_digital_object_path(digital_object) %></td>
-    <td><%= link_to 'Destroy', digital_object, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  
+  <% @digital_objects.each do |key,value| %>
+    <tr>
+      <td><%= key %></td>
+      <td><%= value%></td>
+    </tr>
+  <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Digital object', new_digital_object_path %>
+<%= link_to 'New Digital object', new_file_asset_path %>

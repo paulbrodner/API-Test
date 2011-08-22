@@ -1,12 +1,14 @@
-class DigitalObjectsController < ApplicationController
+require 'json'
 
+class DigitalObjectsController < ApplicationController
+  include ApplicationHelper
   before_filter :authenticate_user!
 
   
   # GET /digital_objects
   # GET /digital_objects.xml
   def index
-    @digital_objects = DigitalObject.all
+    @digital_objects = JSON[access_token.get("/api/v1/digital_objects/my").body]
 
     respond_to do |format|
       format.html # index.html.erb

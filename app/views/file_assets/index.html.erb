@@ -1,13 +1,19 @@
-<h1>Listing my File Assets</h1>
+<h1>Listing All File Assets</h1>
 
+<p>Testing the GET method of the API.</p>
+<p>In this table you will see the id's of all file assets from dev.doxsite.com. You can also test the GET/DELETE method on one individual file asset clicking SHOW or the DELETE links.</p>
+<p>You can also the the POST create method using the New File asset link.</p>
+<%= link_to 'New File asset', new_file_asset_path %>
+<hr/>
+<br />
 <table>
   <tr>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-  <b>ID's:</b>
-  <%= @file_assets.keys %>
+  <br/>
+  IDs found: <b><%= @file_assets.keys.count %> </b>
   <% @file_assets.each do |key,value| %>
     <tr>
       <td><%= key %></td>
@@ -18,6 +24,4 @@
   <% end %>
 </table>
 
-<br />
 
-<%= link_to 'New File asset', new_file_asset_path %>

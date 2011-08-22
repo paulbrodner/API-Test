@@ -1,12 +1,14 @@
 <h1>Listing emails</h1>
+<p>Testing the GET methods of the API</p>
+<p>In this table you will see the id's of all emails from dev.doxsite.com. You can also test the GET/DELETE method on one individual emails clicking SHOW or the DELETE links.</p>
+<p>You can also test other API methods for tags, clicking the Show button for a specific email.</p>
 <table>
   <tr>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-  <h5>Email ID's:</h5>
-  <%= @emails.keys %>
+  <p>Emails found: </p><b><%= @emails.keys.count %></b> <br/>
   <h5>Small details (Subject of email)</h5>
   <% @emails.each do |key, value| %>
     <tr>

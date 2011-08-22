@@ -3,7 +3,7 @@ require 'json'
 class UserDoxsitesController < ApplicationController
   include ApplicationHelper
 
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   respond_to  :html
 

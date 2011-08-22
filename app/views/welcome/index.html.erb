@@ -4,15 +4,12 @@
   <b>Note:</b> You must create a new account in order to continue.
 </p>
 <p>
-  On this page <%= link_to "OAuth Consumers", oauth_consumers_path %> you will see the available services supported by this consumer.
-</p>
-<p>
-  We created some test pages for some methods available from Doxsite-API.
+  If you are already connected to Doxsite (through API: click <%= link_to 'here', oauth_consumers_path %> to see the current status) you can:
 </p>
 <hr/>
 
 <p>
-  If you are already connected to Doxsite (through API), you can:
+
 </p>
 <table class="api_test">
   <tr>
@@ -34,12 +31,18 @@
   <tr>
     <td>File Assets</td>
     <td align="right">
-      See <%= link_to "My File Assets", file_assets_path %>
+      See <%= link_to "All File Assets", file_assets_path %>
       <br/>
       Create <%= link_to "New File Assets", new_file_asset_path %>
       <br/>
     </td>
     <td>add tags, untag, delete file asset</td>
+  </tr>
+  <tr>
+    <td>Digital Objects</td>
+    <td align="right">
+      See <%= link_to "My Digital Object", digital_objects_path %>
+    </td>
   </tr>
   <tr>
     <td>Users</td>
@@ -55,5 +58,12 @@
     <td>add tags, untag, delete emails, show attachments, html and text body, other details</td>
   </tr>
 </table>
+<hr/>
+<p><b>Note:</b> On some pages you will see the details of some objects displayed in <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> format. This is the default format returned by our DOXSITE-API.</p>
+<%#*TEST#0%>
+<%#= APP_CONFIG%>
+<%#*<p>%>
+<%#= APP_CONFIG["email_domain"]%>
+<%#*</p>%>
 
-TEST#0
+<%#= Rails.env %>

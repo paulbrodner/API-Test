@@ -1,10 +1,12 @@
 <h2>All personal tags assets </h2>
-<%= render "general/info_parsing" %>
-
+<p> This page test the get and post method for tags.</p>
 <p>
-  Tags displayed in list:<br/>
-  <%= form_tag('/tags/destroy')  do %>
+<li>The GET method will bring all the tags from dev.doxsite.com and display them on the list bellow.</li>
+<li>You can test the DELETE method selecting one tag id and pressing "Delete tag". The list is filled again with the tags found on Doxsite application.</li>
+</p>
+<% form_tag('/tags/destroy')  do %>
   <div class="field">
+    <%= label_tag "All Tags available:" %>
     <%= collection_select('tag', 'tag_id', @tags_obj, :last, :first) %>
   </div>
   <div class="actions">
@@ -12,10 +14,3 @@
   </div>
 <% end %>
 
-</p>
-
-<% if access_token %>
-  <%= @tags.body %>
-<% else %>
-  <%= render "general/info_oauth" %>
-<% end %>

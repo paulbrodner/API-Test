@@ -65,20 +65,8 @@
 
 OAUTH_CREDENTIALS={
 	:doxsite =>{
-    :key => "MteaTlh4NELywqt6x44v5OCnau2Qgp0gR1ylzhUq",
-    :secret => "RWe0Gmd3necJI8wvH9DZidBRdjnvMaRZATzLT289",
-    :oauth_version => 2,
-    :expose => false,
-    :options=>{ # OAuth::Consumer options
-      :site => "http://localhost:3000",
-      :request_token_path => "/oauth/request_token",
-      :access_token_path => "/oauth/access_token",
-      :authorize_path => "/oauth/authorize"
-    }
-  },
-  :oauth2_test =>{
-    :key => "MteaTlh4NELywqt6x44v5OCnau2Qgp0gR1ylzhUq",
-    :secret => "RWe0Gmd3necJI8wvH9DZidBRdjnvMaRZATzLT289",
+    :key => "iGo73Q8wRCdiUl7gt9VTaZ2uv6whjHspmFI6A0hu",
+    :secret => "sr5nEb3oT6cqIvDeAIqlSJWADnRDsfmpXKI517kh",
     :oauth_version => 2,
     :expose => false,
     :options=>{ # OAuth::Consumer options

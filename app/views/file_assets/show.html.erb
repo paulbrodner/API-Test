@@ -1,5 +1,14 @@
 <h2>File asset details</h2>
-<h5>Tags of this file asset</h5>
+<p>
+This page test the following API methods:
+<li>GET information about current file asset</li>
+<li>GET all tags of this file asset</li>
+<li>GET all tags available</li>
+<li>DELETE remove(untagging) tags from this file asset</li>
+<li>POST tagging this file asset using one available tag </li>
+</p>
+<hr/>
+<h5>File asset tags</h5>
 <ol>
   <% @file_asset_tags.each do |tag| %>
     <li>
@@ -8,11 +17,9 @@
     </li>
   <% end %>
 </ol>
+<h5>Tag this file asset</h5>
+<p>(the id is displayed in this list for testing purpose - the developer can also display the name of the tag, or any other information returned by GET method) </p>
 <%= render "tags/tag_object", :controller=>"file_assets" %>
 
-<hr/>
-<h5>All information retrieved about file asset</h5>
-<%= @file_asset%>
 
-<%= link_to 'Edit', edit_file_asset_path(@file_asset[0]) %> |
 <%= link_to 'Back', file_assets_path %>

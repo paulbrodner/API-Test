@@ -1,5 +1,6 @@
 <h1>Test adding a new tag (using API)</h1>
-<p>Add a new tag and press submit! If everything is OK, you should see the new tag created on dev.doxsite.com application</p>
+<p>Test the POST method of the API. Add a new tag name and press submit! If everything is OK, you should see the new tag created on <a href="http://dev.doxsite.com/tags">dev.doxsite.com/tags</a> .</p>
+<p>You can also see list of all tag id's <%= link_to "here", tags_all_path %> .</p>
 <%= form_tag  do %>
   <div class="field">
     <%= label_tag("New Tag") %>

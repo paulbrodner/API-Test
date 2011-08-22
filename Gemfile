@@ -13,3 +13,5 @@ gem 'json'
 gem 'capistrano'
 
 gem 'rest-client', :git =>'git://github.com/archiloque/rest-client.git'
+
+gem "recursive-open-struct", "~> 0.2.1"
