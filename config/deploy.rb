@@ -25,14 +25,15 @@ set :deploy_via,            :remote_cache
 set :keep_releases,         2
 set :ssh_options,           { :forward_agent => true, :port => 22, :keys => [ "#{ENV['HOME']}/.ssh/osf.pem" ] }
 set :api_config_dir,        "/var/api_consumer_config"
-
+set :rails_machine,         'dev'
 
 role :web, dev_domain                          # Your HTTP server, Apache/etc
 role :app, dev_domain                          # This may be the same as your `Web` server
 role :db,  dev_domain, :primary => true        # This is where Rails migrations will run
 
-after "deploy", "deploy:copy_oauth_init"
-after "deploy:copy_oauth_init", "deploy:restart"
+after "deploy",                   "deploy:copy_oauth_init"
+after "deploy:copy_oauth_init",   "deploy:set_rails_machine"
+after "deploy:set_rails_machine", "deploy:restart"
 
 # for Passenger mod_rails 
 namespace :deploy do
@@ -45,6 +46,10 @@ namespace :deploy do
   task :copy_oauth_init do
     puts "copying the oauth_consumer for development (you must change this file manually if is modified locally)!!!"
     run "cp #{api_config_dir}/oauth_consumers.rb #{deploy_to}/current/config/initializers"
+  end
+
+  task :set_rails_machine do
+    run "ruby #{current_path}/lib/change_file.rb  #{current_path}/config/application.rb /## rails_machine_here ##/ \"config.machine = 'dev'\""
   end
   
   task :start do ; end
