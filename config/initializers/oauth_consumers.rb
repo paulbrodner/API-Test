@@ -65,8 +65,8 @@
 
 OAUTH_CREDENTIALS={
 	:doxsite =>{
-    :key => "iGo73Q8wRCdiUl7gt9VTaZ2uv6whjHspmFI6A0hu",
-    :secret => "sr5nEb3oT6cqIvDeAIqlSJWADnRDsfmpXKI517kh",
+    :key => Rails.my.key,       #config/machine.yml
+    :secret => Rails.my.secret, #config/machine.yml
     :oauth_version => 2,
     :expose => false,
     :options=>{ # OAuth::Consumer options

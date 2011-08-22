@@ -1,9 +1,13 @@
 development:
   domain: localhost.doxsite.com
-  www_domain: www.localhost.doxsite.com
+  www_domain: www.localhost.doxsite.com:3000
   email_domain: localhost.mydoxsite.com
+  key: "iGo73Q8wRCdiUl7gt9VTaZ2uv6whjHspmFI6A0hu"
+  secret: "sr5nEb3oT6cqIvDeAIqlSJWADnRDsfmpXKI517kh"
     
 production:
   domain: dev.doxsite.com
   www_domain: www.dev.doxsite.com
   email_domain: dev.mydoxsite.com
+  key: "CXVJyDw3gEFAT0tvtgRsb6ngvzzhu9HhD8BDKWxZ"
+  secret: "mXz3nIno9U5CRrqImDQLiwGDD34yDubojtKn7aQC"
