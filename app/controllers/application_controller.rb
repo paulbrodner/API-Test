@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_url
   end
 
+  rescue_from JSON::ParserError do |ex|
+    flash[:error] = "Error: #{ex.message}"
+    redirect_to root_url
+  end
+
   def display_api_response(response)
     puts response
     if response.is_a? Net::HTTPOK or response.body.include?("200")

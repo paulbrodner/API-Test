@@ -30,22 +30,12 @@ role :web, dev_domain                          # Your HTTP server, Apache/etc
 role :app, dev_domain                          # This may be the same as your `Web` server
 role :db,  dev_domain, :primary => true        # This is where Rails migrations will run
 
-#after "deploy",                   "deploy:copy_oauth_init"
-#after "deploy:copy_oauth_init",   "deploy:restart"
-
-# for Passenger mod_rails 
 namespace :deploy do
   #  desc "Run Bundle Install"
   #  #you will see the current gems installed
   #  task :bundle_gems do
   #    run "cd #{deploy_to}/current && bundle install vendor/gems"
   #  end
-
-  task :copy_oauth_init do
-    puts "copying the oauth_consumer for development (you must change this file manually if is modified locally)!!!"
-    run "cp #{api_config_dir}/oauth_consumers.rb #{deploy_to}/current/config/initializers"
-  end
-
   task :start do ; end
   task :stop do ; end
 

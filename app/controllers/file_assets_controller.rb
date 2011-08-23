@@ -46,14 +46,12 @@ class FileAssetsController < ApplicationController
   # POST /file_assets.xml
   def create
     # this post requires authentication so i send the current access_token
-    #RestClient.add_before_execution_proc do |req, params|
-    #  access_token.sign!(req)
-    #end
-    puts "_*_" * 10
+    RestClient.add_before_execution_proc do |req, params|
+      access_token.sign! req
+    end
     RestClient.post "http://#{Rails.my.www_domain}/api/v1/file_assets/create", :file_asset =>params["file"]
-    puts "*" * 50
     #with access token doesn't work
-    #@file_asset = access_token.post('/api/v1/file_assets/create', {:file_asset=>params})
+    #@file_asset = access_token.post('/api/v1/file_assets/create', {:file_asset=>params["file"]})
     flash[:notice] = "Operation terminated. Check if the file is uploaded on Doxsite (testing)"
     respond_with("",:location => :back)
   end
