@@ -1,8 +1,11 @@
 <h1>Welcome</h1>
 <h4>This is one basic application to test the Doxsite-API, using the OAuth service.</h4>
-<p>
-  <b>Note:</b> You must create a new account in order to continue.
-</p>
+<b>Users</b> (you must create a new account in order to continue):
+<ol>
+  <% @users.each do |u| %>
+    <li><%= u.email %></li>
+  <% end %>
+</ol>
 <p>
   If you are already connected to Doxsite (through API: click <%= link_to 'here', oauth_consumers_path %> to see the current status) you can:
 </p>
@@ -59,4 +62,4 @@
   </tr>
 </table>
 <hr/>
-<p><b>Note:</b> On some pages you will see the details of some objects displayed in <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> format. This is the default format returned by our DOXSITE-API.</p>
+<p><b>Note:</b> On this pages you will see the details of some objects displayed in <a href="http://en.wikipedia.org/wiki/JSON">JSON</a> format(the default format returned by our DOXSITE-API)</p>
