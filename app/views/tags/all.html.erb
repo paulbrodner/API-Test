@@ -7,10 +7,9 @@
 <% form_tag('/tags/destroy')  do %>
   <div class="field">
     <%= label_tag "All Tags available:" %>
-    <%= collection_select('tag', 'tag_id', @tags_obj, :last, :first) %>
+    <%= collection_select('tag', 'id_tag', @tags_obj, :first, :last) %>
   </div>
   <div class="actions">
     <%= submit_tag("Delete tag")%>
   </div>
 <% end %>
-

@@ -53,7 +53,7 @@ class FileAssetsController < ApplicationController
     #with access token doesn't work
     #@file_asset = access_token.post('/api/v1/file_assets/create', {:file_asset=>params["file"]})
     flash[:notice] = "Operation terminated. Check if the file is uploaded on Doxsite (testing)"
-    respond_with("",:location => :back)
+    respond_with("",:location => file_assets_path)
   end
 
   # PUT /file_assets/1
