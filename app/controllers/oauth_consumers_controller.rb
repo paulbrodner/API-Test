@@ -1,5 +1,7 @@
 require 'oauth/controllers/consumer_controller'
+
 class OauthConsumersController < ApplicationController
+  include ApplicationHelper
   include Oauth::Controllers::ConsumerController
   # Replace this with the equivalent for your authentication framework
   # Eg. for devise
@@ -16,6 +18,7 @@ class OauthConsumersController < ApplicationController
   
   def callback
   	super
+    flash[:notice] = flash[:notice] + "; [Now using Doxsite user inbox: #{doxsite_user["inbox"]}]"
   end
   
   def client

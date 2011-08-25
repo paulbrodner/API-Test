@@ -20,8 +20,7 @@ class TagsController < ApplicationController
   end
 
   def destroy
-    id = params["tag"]["id_tag"]
-    puts id
+    id = params["tag"]["id_tag"].sub("-",":")
     result = access_token.delete("/api/v1/tags/#{id}")
     display_api_response result
     respond_with("",:location => :back)

@@ -86,4 +86,11 @@ class DigitalObjectsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  def filter_by_tag
+    puts "Filtering by tag id"
+    
+  end
+  
 end

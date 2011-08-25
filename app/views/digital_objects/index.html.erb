@@ -4,6 +4,8 @@
 <p>You can also add a <%= link_to 'new digital object', new_file_asset_path %> (file asset)</p>
 <p>ID's found: <b><%= @digital_objects.keys.count %></b> </p>
 
+<%= render "filter/tags" %>
+<%= link_to "test_filter", filter_by_tag_digital_objects(1) %>
 <table class="listing">
   <tr>
     <th>ID</th>

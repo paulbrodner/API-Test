@@ -3,17 +3,28 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= devise_error_messages! %>
 
+  <p>"Connected with Doxsite ?"<br /></p>
+    <% if (ConsumerToken.all :conditions=>{:user_id=>current_user.id}).empty? %>
+    <p>
+      <font color="RED">Not connected to Doxsite provider</font>; follow this  <%= link_to 'link', oauth_consumers_path %> to attempt a new connection!
+    </p>
+  <% else %>
+    <p>
+      Doxsite username:<b><%= doxsite_user["inbox"] %></b>
+    </p>
+  <% end %>
+
   <p><%= f.label :email %><br />
-  <%= f.email_field :email %></p>
+    <%= f.email_field :email %></p>
 
   <p><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password %></p>
+    <%= f.password_field :password %></p>
 
   <p><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></p>
+    <%= f.password_field :password_confirmation %></p>
 
   <p><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></p>
+    <%= f.password_field :current_password %></p>
 
   <p><%= f.submit "Update" %></p>
 <% end %>

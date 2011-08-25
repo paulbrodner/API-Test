@@ -1,6 +1,10 @@
 DoxsiteApiTest::Application.routes.draw do
 
-  resources :digital_objects
+  resources :digital_objects do
+    member do
+      get "filter_by_tag"
+    end
+  end
 
   resources :emails do
     member do
