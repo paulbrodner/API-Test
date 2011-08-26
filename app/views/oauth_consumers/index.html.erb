@@ -12,7 +12,11 @@
     <% @consumer_tokens.each do |token| %>
       <li>
         <%= link_to token.class.service_name.to_s.humanize, oauth_consumer_path(token.class.service_name) %>
-        (connected with Doxsite on account:<b><%= doxsite_user["inbox"] %></b>)
+        <% unless access_token %>
+          (connected with Doxsite on account:<b><%= doxsite_user["inbox"] %></b>)
+        <% else %>
+          please reconnect to this service !
+        <% end %>
       </li>
     <% end %>
   </ul>
