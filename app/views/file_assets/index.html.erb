@@ -6,11 +6,14 @@
 <%= link_to 'New File asset', new_file_asset_path %>
 <hr/>
 <br />
-<table>
+
+<table class="listing">
   <tr>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Size</th>
+    <th>Type</th>
+    <th>Note</th>
   </tr>
   <br/>
   IDs found: <b><%= @file_assets.keys.count %> </b>
@@ -18,10 +21,11 @@
     <tr>
       <td><%= key %></td>
       <td><%= value["name"]%></td>
+      <td><%= value["size"]%></td>
+      <td><%= value["type"]%></td>
+      <td><%= value["note"]%></td>
       <td><%= link_to 'Show', file_asset_path(key.sub("-",":")) %></td>
       <td><%= link_to 'Delete', file_asset_path(key.sub("-",":")), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
 </table>
-
-

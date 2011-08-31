@@ -1,0 +1,19 @@
+<h4>Filter my digital objects</h4>
+<p>To deselect press CTRL+LMouse</p>
+<%= form_tag(:action=>"filter_by") do %>
+  <div class="field">
+    <table>
+      <tr>
+        <td><%= label_tag("by Tags:") %></td>
+        <td><%= collection_select('', 'tags_id', @tags_obj, :last, :first,{},:multiple => true) %></td>
+      </tr>
+      <tr>
+        <td><%= label_tag("by Contacts:") %></td>
+        <td><%= collection_select('', 'contacts_id', @contacts, :last, :first,{},:multiple => true) %></td>
+      </tr>
+    </table>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Filter"%>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<p>ID's found: <b><%= digital_objects.keys.count-1 %></b> </p>
+<table class="listing">
+  <tr>
+    <th>ID</th>
+    <th>Other details of the object</th>
+  </tr>
+
+  <% digital_objects.each do |key,value| %>
+    <tr>
+      <td><%= key %></td>
+      <td><%= value%></td>
+    </tr>
+  <% end %>
+</table>
+<br />
+
+

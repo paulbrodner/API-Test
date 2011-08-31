@@ -3,13 +3,16 @@ require 'json'
 class DigitalObjectsController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!
+  respond_to  :html
 
   
   # GET /digital_objects
   # GET /digital_objects.xml
   def index
+    puts params.inspect
     @digital_objects = JSON[access_token.get("/api/v1/digital_objects/my").body]
-
+    @tags_obj = JSON[access_token.get("/api/v1/tags").body]
+    @contacts = JSON[access_token.get("/api/v1/contacts").body]
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @digital_objects }
@@ -88,9 +91,13 @@ class DigitalObjectsController < ApplicationController
   end
 
 
-  def filter_by_tag
-    puts "Filtering by tag id"
-    
+  def filter_by
+    all_filters ={}
+    all_filters["tags"] = params[:tags_id] if params[:tags_id]
+    all_filters["contacts"] = params[:contacts_id] if params[:contacts_id]
+    all_filters.each_value { |value| value.collect { |item| item.sub!("-",":") }  }
+    @digital_object_filtered =  JSON[access_token.post("/api/v1/digital_objects/my",all_filters).body]
+    puts "--" * 10
   end
   
 end

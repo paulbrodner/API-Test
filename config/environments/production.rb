@@ -46,4 +46,11 @@ DoxsiteApiTest::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  # ActionMailer Config
+  config.action_mailer.delivery_method       = :smtp
+  config.action_mailer.perform_deliveries    = true
+  config.action_mailer.raise_delivery_errors = true
+  require Rails.root.to_s + '/config/gmail_stmp_settings'
+  config.action_mailer.smtp_settings         = STMP_SETTINGS
 end
