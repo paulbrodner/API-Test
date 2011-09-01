@@ -7,6 +7,7 @@ tmp/
 db/*.sqlite3
 config/deploy.passwords.yml
 config/deploy_ex.rb
+config/gmail_stmp_settings.rb
 .vagrant
 Vagrantfile
 nbproject
