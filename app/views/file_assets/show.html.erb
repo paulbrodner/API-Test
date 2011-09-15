@@ -1,6 +1,6 @@
 <h2>File asset details</h2>
 <p>
-This page test the following API methods:
+  This page test the following API methods:
 <li>GET information about current file asset</li>
 <li>GET all tags of this file asset</li>
 <li>GET all tags available</li>
@@ -21,5 +21,7 @@ This page test the following API methods:
 <p>(the id is displayed in this list for testing purpose - the developer can also display the name of the tag, or any other information returned by GET method) </p>
 <%= render "tags/tag_object", :controller=>"file_assets" %>
 
+<h5>Tag using tag name</h5>
+<%= render "tags/tag_object_by_name", :controller=>"file_assets" %>
 
 <%= link_to 'Back', file_assets_path %>

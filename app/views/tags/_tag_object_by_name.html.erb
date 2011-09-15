@@ -1,0 +1,9 @@
+<%= form_tag(:action=>"add_tag_by_name", :controller=>controller) do %>
+  <div class="field">
+    <%= label_tag("tag_name:") %>
+    <%= text_field_tag(:tag_name) %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Tag File Asset"%>
+  </div>
+<% end %>

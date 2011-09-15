@@ -81,6 +81,13 @@ class FileAssetsController < ApplicationController
     respond_with("",:location => :back)
   end
 
+  def add_tag_by_name
+    result = access_token.post("/api/v1/file_assets/#{setup_id}/tags", {:name=>params[:tag_name]})
+    display_api_response result
+    respond_with("",:location => :back)
+  end
+
+
 
   def untag
     result = access_token.delete("/api/v1/file_assets/#{setup_id}/tags/#{params[:tag_id]}")

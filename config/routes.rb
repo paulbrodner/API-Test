@@ -15,6 +15,7 @@ DoxsiteApiTest::Application.routes.draw do
   resources :file_assets do
     member do
       post "add_tag"
+      post "add_tag_by_name"
       post "untag"
     end
   end
